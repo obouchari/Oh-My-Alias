@@ -26,18 +26,17 @@ export async function initCliConfig(): Promise<void> {
   const shellScriptPath = getShellScriptPath();
 
   try {
-    // 1. Ensure config directory exists
+    // Ensure config directory exists
     await fs.mkdir(aliasesDirPath, { recursive: true });
     displayMessage(
       `Ensured config directory exists at: ${aliasesDirPath}`,
       "info"
     );
 
-    // 2. Ensure aliases.json exists and is empty if new
-    let existingAliases = {};
+    // Ensure aliases.json exists and is empty if new
     try {
       const data = await fs.readFile(aliasesJsonPath, "utf8");
-      existingAliases = JSON.parse(data);
+      JSON.parse(data);
     } catch (error: any) {
       if (error.code === "ENOENT") {
         await writeAliasesJson({}); // Create empty JSON file if it doesn't exist
@@ -50,10 +49,10 @@ export async function initCliConfig(): Promise<void> {
       }
     }
 
-    // 3. Generate the initial shell script
+    // Generate the initial shell script
     await syncShellAliases();
 
-    // 4. Provide instructions to the user
+    // Provide instructions to the user
     displayMessage("\n--- CLI Initialization Complete ---", "info");
     displayMessage(
       'To make your aliases available in your shell, you need to "source" the generated script.',
@@ -226,7 +225,9 @@ export async function removeAlias(name: string): Promise<void> {
 
   if (!proceed) {
     displayMessage("Alias removal cancelled.", "info");
+    return;
   }
+
   // Proceed with removal
   delete aliases[name];
   await writeAliasesJson(aliases);
