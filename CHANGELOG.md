@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.4](https://github.com/obouchari/ali-cli/compare/v1.0.3...v1.0.4) (2025-06-29)
+
+
+### Bug Fixes
+
+* bump version to 1.0.4 in package.json ([6ff5eed](https://github.com/obouchari/ali-cli/commit/6ff5eed3d882e1b23fff0c3abff4ecb223c6dce2))
+* update package name to 'ali-cli' and add author and keywords ([7ce7bfe](https://github.com/obouchari/ali-cli/commit/7ce7bfe1991a70d2654962a99abebdf99cdadd0f))
+
 ## [1.0.3](https://github.com/obouchari/ali-cli/compare/v1.0.2...v1.0.3) (2025-06-29)
 
 
