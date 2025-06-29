@@ -1,5 +1,5 @@
 {
-  "name": "ali",
+  "name": "ali-cli",
   "version": "1.0.1",
   "description": "",
   "bin": {
@@ -11,8 +11,14 @@
     "dev": "ts-node src/index.ts",
     "start": "node dist/index.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "alias manager",
+    "alias cli",
+    "command-line alias",
+    "shell alias",
+    "shell command"
+  ],
+  "author": "obouchari",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
