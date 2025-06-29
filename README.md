@@ -1,28 +1,111 @@
-Ali CLIA simple and powerful command-line interface (CLI) tool built with TypeScript, yargs, and @inquirer/prompts to help you manage your shell aliases efficiently. Stop cluttering your .bashrc or .zshrc directly and let ali handle your alias collection!FeaturesEasy Alias Management: Add, list, and remove shell aliases with intuitive commands.Persistent Storage: Aliases are stored in a clean JSON file in your home directory (~/.ali-cli/aliases.json).Shell Integration: Generates a shell script (~/.ali-cli/aliases.sh) that you can easily source in your shell's configuration file for seamless access to your aliases.Interactive Prompts: Uses @inquirer/prompts for user confirmation (e.g., before overwriting or removing aliases).Clear Output: Utilizes chalk for colored and readable terminal output.Global Options: Supports short flags like ali -l to quickly list aliases.InstallationTo get ali-cli up and running on your system, follow these steps:Clone the repository (or create your project locally):git clone https://github.com/your-username/ali-cli.git
-cd ali-cli
-(If you're building it from scratch, just navigate to your project directory.)Install dependencies:npm install
-Build the TypeScript project:npm run build
-This will compile the TypeScript code into JavaScript in the dist/ directory.Link the CLI for global access (for development/testing):npm link
-This command makes ali available as a global command in your terminal.Usage1. Initialize the CLIFirst, you need to initialize ali to set up its configuration files and integrate with your shell.ali init
-Follow the on-screen instructions. This command will:Create the ~/.ali-cli/ directory.Create an empty ~/.ali-cli/aliases.json file to store your aliases.Generate the ~/.ali-cli/aliases.sh script.Crucially, it will tell you to add a line like source "~/.ali-cli/aliases.sh" to your shell's configuration file (e.g., ~/.bashrc, ~/.zshrc, ~/.profile). You only need to do this once.After adding the source line, remember to reload your shell configuration (e.g., source ~/.bashrc) or open a new terminal session for the changes to take effect.2. Managing AliasesOnce initialized, you can use ali to manage your aliases:Add an Aliasali add <alias-name> "<command-to-alias>"
-# Example:
-ali add gcl "git clone --depth 1"
-ali add gs "git status -sb"
-If an alias already exists, ali will prompt you for confirmation before overwriting it.List All Aliasesali list
-# Or using the shorthand flag:
-ali -l
-This will display all aliases currently stored in your aliases.json file.Remove an Aliasali remove <alias-name>
-# Example:
-ali remove gcl
-```ali` will ask for confirmation before permanently removing an alias.
+# **Ali CLI**
 
-#### Synchronize Shell Aliases Script
+A simple and powerful command-line interface (CLI) tool built with TypeScript, yargs, and @inquirer/prompts to help you manage your shell aliases efficiently. Stop cluttering your .bashrc or .zshrc directly and let ali handle your alias collection\!
 
-Normally, `ali add` and `ali remove` automatically update the `aliases.sh` script. However, if you manually edit `~/.ali-cli/aliases.json` or suspect an issue, you can force a synchronization:
+## **Features**
 
-```bash
+* **Easy Alias Management:** Add, list, and remove shell aliases with intuitive commands.  
+* **Persistent Storage:** Aliases are stored in a clean JSON file in your home directory (\~/.ali-cli/aliases.json).  
+* **Shell Integration:** Generates a shell script (\~/.ali-cli/aliases.sh) that you can easily source in your shell's configuration file for seamless access to your aliases.  
+* **Interactive Prompts:** Uses @inquirer/prompts for user confirmation (e.g., before overwriting or removing aliases).  
+* **Clear Output:** Utilizes chalk for colored and readable terminal output.  
+* **Global Options:** Supports short flags like ali \-l to quickly list aliases.
+
+## **Installation**
+
+To get ali-cli up and running on your system, follow these steps:
+
+1. **Clone the repository (or create your project locally):**  
+   git clone https://github.com/your-username/ali-cli.git  
+   cd ali-cli
+
+   (If you're building it from scratch, just navigate to your project directory.)  
+2. **Install dependencies:**  
+   npm install
+
+3. **Build the TypeScript project:**  
+   npm run build
+
+   This will compile the TypeScript code into JavaScript in the dist/ directory.  
+4. **Link the CLI for global access (for development/testing):**  
+   npm link
+
+   This command makes ali available as a global command in your terminal.
+
+## **Usage**
+
+### **1\. Initialize the CLI**
+
+First, you need to initialize ali to set up its configuration files and integrate with your shell.
+
+ali init
+
+Follow the on-screen instructions. This command will:
+
+* Create the \~/.ali-cli/ directory.  
+* Create an empty \~/.ali-cli/aliases.json file to store your aliases.  
+* Generate the \~/.ali-cli/aliases.sh script.  
+* **Crucially**, it will tell you to add a line like source "\~/.ali-cli/aliases.sh" to your shell's configuration file (e.g., \~/.bashrc, \~/.zshrc, \~/.profile). You only need to do this once.
+
+After adding the source line, remember to reload your shell configuration (e.g., source \~/.bashrc) or open a new terminal session for the changes to take effect.
+
+### **2\. Managing Aliases**
+
+Once initialized, you can use ali to manage your aliases:
+
+#### **Add an Alias**
+
+ali add \<alias-name\> "\<command-to-alias\>"  
+\# Example:  
+ali add gcl "git clone \--depth 1"  
+ali add gs "git status \-sb"
+
+If an alias already exists, ali will prompt you for confirmation before overwriting it.
+
+#### **List All Aliases**
+
+ali list  
+\# Or using the shorthand flag:  
+ali \-l
+
+This will display all aliases currently stored in your aliases.json file.
+
+#### **Remove an Alias**
+
+ali remove \<alias-name\>  
+\# Example:  
+ali remove gcl  
+\`\`\`ali\` will ask for confirmation before permanently removing an alias.
+
+\#\#\#\# Synchronize Shell Aliases Script
+
+Normally, \`ali add\` and \`ali remove\` automatically update the \`aliases.sh\` script. However, if you manually edit \`\~/.ali-cli/aliases.json\` or suspect an issue, you can force a synchronization:
+
+\`\`\`bash  
 ali sync
-After running ali sync, you will still need to re-source your shell configuration (e.g., source ~/.bashrc) for the changes to become active in your current terminal session.Run an Alias (for testing purposes)While you'll typically run aliases directly in your shell after sourcing, you can use the run command to test them:ali run <alias-name> [additional arguments...]
-# Example:
+
+After running ali sync, you will still need to re-source your shell configuration (e.g., source \~/.bashrc) for the changes to become active in your current terminal session.
+
+#### **Run an Alias (for testing purposes)**
+
+While you'll typically run aliases directly in your shell after sourcing, you can use the run command to test them:
+
+ali run \<alias-name\> \[additional arguments...\]  
+\# Example:  
 ali run gcl my-repo-url
-ConfigurationThe ali-cli stores its configuration and aliases in your home directory:Configuration Directory: ~/.ali-cli/Aliases Data File: ~/.ali-cli/aliases.json (a JSON file containing key-value pairs of alias name and command)Shell Integration Script: ~/.ali-cli/aliases.sh (the script generated by ali that you source in your shell config)ContributingContributions are welcome! If you have suggestions, bug reports, or want to contribute code, please open an issue or pull request on the GitHub repository.LicenseThis project is licensed under the MIT License - see the LICENSE file for details.
+
+## **Configuration**
+
+The ali-cli stores its configuration and aliases in your home directory:
+
+* **Configuration Directory:** \~/.ali-cli/  
+* **Aliases Data File:** \~/.ali-cli/aliases.json (a JSON file containing key-value pairs of alias name and command)  
+* **Shell Integration Script:** \~/.ali-cli/aliases.sh (the script generated by ali that you source in your shell config)
+
+## **Contributing**
+
+Contributions are welcome\! If you have suggestions, bug reports, or want to contribute code, please open an issue or pull request on the GitHub repository.
+
+## **License**
+
+This project is licensed under the MIT License \- see the [LICENSE](http://docs.google.com/LICENSE) file for details.
