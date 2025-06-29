@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.8](https://github.com/obouchari/Oh-My-Alias/compare/v1.0.7...v1.0.8) (2025-06-29)
+
+
+### Bug Fixes
+
+* add build step to NPM publish workflow and update .npmignore to exclude additional files ([#18](https://github.com/obouchari/Oh-My-Alias/issues/18)) ([30e836b](https://github.com/obouchari/Oh-My-Alias/commit/30e836bbcaeca20aa20bb12253cb884e06ad79b9))
+
 ## [1.0.7](https://github.com/obouchari/Oh-My-Alias/compare/v1.0.6...v1.0.7) (2025-06-29)
 
 
