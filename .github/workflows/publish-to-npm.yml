@@ -23,6 +23,9 @@ jobs:
       - name: Run tests (optional but highly recommended)
         run: npm test
 
+      - name: Build the package
+        run: npm run build
+
       - name: Publish to npm
         run: npm publish --access public # Use --access public for unscoped public packages
         env:
