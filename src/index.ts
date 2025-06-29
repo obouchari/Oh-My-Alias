@@ -15,7 +15,7 @@ import { displayMessage } from "./utils";
 
 async function main() {
   yargs(hideBin(process.argv))
-    .scriptName("oh-my-alias")
+    .scriptName("oma")
     .usage("Usage: $0 <command> [options]")
     .command(
       "init",
@@ -179,7 +179,7 @@ async function main() {
     .help()
     .alias("h", "help")
     .alias("v", "version")
-    .version("1.0.0")
+    .version() // Automatically uses package.json version
     .epilogue("For more information, visit [project README URL].").argv;
 }
 

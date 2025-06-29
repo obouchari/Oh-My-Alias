@@ -3,7 +3,8 @@
   "version": "1.0.6",
   "description": "",
   "bin": {
-    "ali": "./bin/index.js"
+    "oh-my-alias": "./bin/index.js",
+    "oma": "./bin/index.js"
   },
   "main": "/bin/index.js",
   "scripts": {
