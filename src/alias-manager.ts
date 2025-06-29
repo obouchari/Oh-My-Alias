@@ -25,65 +25,60 @@ export async function initCliConfig(): Promise<void> {
   const aliasesJsonPath = getAliasesJsonPath();
   const shellScriptPath = getShellScriptPath();
 
+  // Ensure config directory exists
+  await fs.mkdir(aliasesDirPath, { recursive: true });
+  displayMessage(
+    `Ensured config directory exists at: ${aliasesDirPath}`,
+    "info"
+  );
+
+  // Ensure aliases.json exists and is empty if new
   try {
-    // Ensure config directory exists
-    await fs.mkdir(aliasesDirPath, { recursive: true });
-    displayMessage(
-      `Ensured config directory exists at: ${aliasesDirPath}`,
-      "info"
-    );
-
-    // Ensure aliases.json exists and is empty if new
-    try {
-      const data = await fs.readFile(aliasesJsonPath, "utf8");
-      JSON.parse(data);
-    } catch (error: any) {
-      if (error.code === "ENOENT") {
-        await writeAliasesJson({}); // Create empty JSON file if it doesn't exist
-        displayMessage(
-          `Created empty aliases file: ${aliasesJsonPath}`,
-          "info"
-        );
-      } else {
-        throw error; // Re-throw if it's another read error
-      }
-    }
-
-    // Generate the initial shell script
-    await syncShellAliases();
-
-    // Provide instructions to the user
-    displayMessage("\n--- CLI Initialization Complete ---", "info");
-    displayMessage(
-      'To make your aliases available in your shell, you need to "source" the generated script.',
-      "info"
-    );
-    displayMessage(
-      `\nAdd the following line to your shell's configuration file (e.g., ~/.bashrc, ~/.zshrc, ~/.profile):`,
-      "info"
-    );
-    displayMessage(
-      `\n  echo 'source "${shellScriptPath}"' >> ~/.your_shell_config`,
-      "warning"
-    );
-    displayMessage(
-      `\n(Replace '~/.your_shell_config' with your actual shell config file)`,
-      "warning"
-    );
-    displayMessage(
-      `\nAfter adding the line, reload your shell config by running:`,
-      "info"
-    );
-    displayMessage(`  source ~/.your_shell_config`, "warning");
-    displayMessage("Or simply open a new terminal session.", "info");
-    displayMessage(
-      "\nNow you can use `oma add`, `oma list`, etc to manage your aliases!",
-      "success"
-    );
+    const data = await fs.readFile(aliasesJsonPath, "utf8");
+    JSON.parse(data);
   } catch (error: any) {
-    displayMessage(`Initialization failed: ${error.message}`, "error");
-    throw error;
+    if (error.code === "ENOENT") {
+      await writeAliasesJson({}); // Create empty JSON file if it doesn't exist
+      displayMessage(`Created empty aliases file: ${aliasesJsonPath}`, "info");
+    } else {
+      throw error; // Re-throw if it's another read error
+    }
   }
+
+  // Generate the initial shell script
+  await syncShellAliases();
+
+  // Provide instructions to the user
+  displayMessage(
+    "\nOh-My-Alias initialized successfully! Follow the instructions to integrate it with your shell.\n",
+    "success"
+  );
+  displayMessage(
+    'To make your aliases available in your shell, you need to "source" the generated script.',
+    "info"
+  );
+  displayMessage(
+    `Add the following line to your shell's configuration file (e.g., ~/.bashrc, ~/.zshrc, ~/.profile):`,
+    "info"
+  );
+  displayMessage(
+    `echo 'source "${shellScriptPath}"' >> ~/.your_shell_config`,
+    "warning"
+  );
+  displayMessage(
+    `(Replace '~/.your_shell_config' with your actual shell config file)`,
+    "warning"
+  );
+  displayMessage(
+    `\nAfter adding the line, reload your shell config by running:`,
+    "info"
+  );
+  displayMessage(`source ~/.your_shell_config`, "warning");
+  displayMessage("Or simply open a new terminal session.", "info");
+  displayMessage(
+    "\nNow you can use Oh-My-Alias to manage your aliases!",
+    "success"
+  );
 }
 
 /**
