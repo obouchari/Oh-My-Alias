@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.7](https://github.com/obouchari/Oh-My-Alias/compare/v1.0.6...v1.0.7) (2025-06-29)
+
+
+### Bug Fixes
+
+* Change script name in index.ts from "oh-my-alias" to "oma" and update version retrieval ([c708395](https://github.com/obouchari/Oh-My-Alias/commit/c708395e24a389e3e370a024f57ec88d42c533fe))
+* streamline CLI initialization messages and improve user instructions ([#16](https://github.com/obouchari/Oh-My-Alias/issues/16)) ([6ad1671](https://github.com/obouchari/Oh-My-Alias/commit/6ad16715413926dee6eefbcc14de3c37023f804e))
+* update README to reflect correct CLI name and paths ([7189591](https://github.com/obouchari/Oh-My-Alias/commit/7189591ea5646bf02e69c13755ce294c16e223fa))
+
 ## [1.0.6](https://github.com/obouchari/Oh-My-Alias/compare/v1.0.5...v1.0.6) (2025-06-29)
 
 
