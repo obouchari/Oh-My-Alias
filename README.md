@@ -27,7 +27,7 @@ To get ali-cli up and running on your system, follow these steps:
 3. **Build the TypeScript project:**  
    npm run build
 
-   This will compile the TypeScript code into JavaScript in the dist/ directory.
+   This will compile the TypeScript code into JavaScript in the bin/ directory.
 
 4. **Link the CLI for global access (for development/testing):**  
    npm link
