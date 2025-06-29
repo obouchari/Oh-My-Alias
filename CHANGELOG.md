@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.6](https://github.com/obouchari/Oh-My-Alias/compare/v1.0.5...v1.0.6) (2025-06-29)
+
+
+### Bug Fixes
+
+* update output directory from 'dist' to 'bin' in configuration and doc ([9fd4fdb](https://github.com/obouchari/Oh-My-Alias/commit/9fd4fdb8bd192e9b89715a0371c3794edfc5c2e3))
+* update output directory from 'dist' to 'bin' in configuration and documentation ([af0cf0a](https://github.com/obouchari/Oh-My-Alias/commit/af0cf0a22a0ed3e8b408d80f700be24020df8baa))
+
 ## [1.0.5](https://github.com/obouchari/Oh-My-Alias/compare/v1.0.4...v1.0.5) (2025-06-29)
 
 
