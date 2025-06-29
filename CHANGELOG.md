@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.3](https://github.com/obouchari/ali-cli/compare/v1.0.2...v1.0.3) (2025-06-29)
+
+
+### Bug Fixes
+
+* update version to 1.0.3 and add default test script in package.json ([e0cf870](https://github.com/obouchari/ali-cli/commit/e0cf8700c25ed94db260f37ccbe36d4e6750ea57))
+* update version to 1.0.3 and add default test script in package.json ([c4214f9](https://github.com/obouchari/ali-cli/commit/c4214f9c85b2e5aafbf6f523e281250b6629ad0f))
+
 ## [1.0.2](https://github.com/obouchari/ali-cli/compare/v1.0.1...v1.0.2) (2025-06-29)
 
 
