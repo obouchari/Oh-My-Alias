@@ -15,22 +15,22 @@ import { displayMessage } from "./utils";
 
 async function main() {
   yargs(hideBin(process.argv))
-    .scriptName("ali")
+    .scriptName("oh-my-alias")
     .usage("Usage: $0 <command> [options]")
     .command(
       "init",
-      "Initialize Ali CLI configuration and provide instructions for shell integration.",
+      "Initialize Oh-My-Alias CLI configuration and provide instructions for shell integration.",
       {},
       async () => {
         try {
           await initCliConfig();
           displayMessage(
-            "Ali CLI initialized successfully! Follow the instructions to integrate it with your shell.",
+            "Oh-My-Alias CLI initialized successfully! Follow the instructions to integrate it with your shell.",
             "success"
           );
         } catch (error) {
           displayMessage(
-            `Failed to initialize Ali CLI: ${
+            `Failed to initialize Oh-My-Alias CLI: ${
               error instanceof Error ? error.message : String(error)
             }`,
             "error"
@@ -59,7 +59,7 @@ async function main() {
         try {
           await addAlias(argv.name as string, argv.command as string);
           displayMessage(
-            `Alias '${argv.name}' added successfully. Remember to run 'source ~/.your_shell_config' or 'ali sync' and then re-source your config if changes don't appear immediately.`,
+            `Alias '${argv.name}' added successfully. Remember to run 'source ~/.your_shell_config' or 'oma sync' and then re-source your config if changes don't appear immediately.`,
             "success"
           );
         } catch (error) {
@@ -100,7 +100,7 @@ async function main() {
         try {
           await removeAlias(argv.name as string);
           displayMessage(
-            `Alias '${argv.name}' removed successfully. Remember to run 'source ~/.your_shell_config' or 'ali sync' and then re-source your config if changes don't appear immediately.`,
+            `Alias '${argv.name}' removed successfully. Remember to run 'source ~/.your_shell_config' or 'oma sync' and then re-source your config if changes don't appear immediately.`,
             "success"
           );
         } catch (error) {

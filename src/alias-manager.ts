@@ -13,8 +13,8 @@ type Aliases = {
   [key: string]: string;
 };
 
-const CLI_COMMENT_START = "# Ali CLI Aliases";
-const CLI_COMMENT_END = "# End of Ali CLI Aliases";
+const CLI_COMMENT_START = "# Oh-My-Alias CLI Aliases";
+const CLI_COMMENT_END = "# End of Oh-My-Alias CLI Aliases";
 
 /**
  * Initializes the CLI configuration, creates necessary directories/files,
@@ -77,7 +77,7 @@ export async function initCliConfig(): Promise<void> {
     displayMessage(`  source ~/.your_shell_config`, "warning");
     displayMessage("Or simply open a new terminal session.", "info");
     displayMessage(
-      "\nNow you can use `ali add`, `ali list`, and `ali remove` to manage your aliases!",
+      "\nNow you can use `oma add`, `oma list`, etc to manage your aliases!",
       "success"
     );
   } catch (error: any) {
@@ -281,7 +281,7 @@ export async function clearAliases(): Promise<void> {
   await writeAliasesJson({}); // Write an empty object to clear aliases
   await syncShellAliases(); // Resync the shell script
   displayMessage(
-    "All aliases cleared successfully. Remember to run 'source ~/.your_shell_config' or 'ali sync' and then re-source your config if changes don't appear immediately.",
+    "All aliases cleared successfully. Remember to run 'source ~/.your_shell_config' or 'oma sync' and then re-source your config if changes don't appear immediately.",
     "success"
   );
 }

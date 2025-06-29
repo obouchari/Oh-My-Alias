@@ -4,7 +4,7 @@ import chalk from "chalk";
 import { spawn, SpawnOptionsWithoutStdio } from "child_process";
 
 // Constants for CLI configuration
-const CLI_DIR_NAME = ".ali-cli";
+const CLI_DIR_NAME = ".oh-my-alias";
 const ALIASES_JSON_FILE = "aliases.json";
 const SHELL_ALIASES_SCRIPT_FILE = "shell-aliases.sh";
 
