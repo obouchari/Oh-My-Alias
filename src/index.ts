@@ -24,10 +24,6 @@ async function main() {
       async () => {
         try {
           await initCliConfig();
-          displayMessage(
-            "Oh-My-Alias CLI initialized successfully! Follow the instructions to integrate it with your shell.",
-            "success"
-          );
         } catch (error) {
           displayMessage(
             `Failed to initialize Oh-My-Alias CLI: ${
