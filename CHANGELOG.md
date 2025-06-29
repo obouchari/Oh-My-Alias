@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.5](https://github.com/obouchari/Oh-My-Alias/compare/v1.0.4...v1.0.5) (2025-06-29)
+
+
+### Bug Fixes
+
+* bump version to 1.0.5 in package.json ([e40f54e](https://github.com/obouchari/Oh-My-Alias/commit/e40f54ec0066f7980e2716a5756c026ebe976526))
+* rename project to 'Oh-My-Alias CLI' and update related references ([ed6ef20](https://github.com/obouchari/Oh-My-Alias/commit/ed6ef20f3ca89de7f5e2504e421d57530ba77082))
+* rename project to 'Oh-My-Alias CLI' and update related references ([cf84bff](https://github.com/obouchari/Oh-My-Alias/commit/cf84bff3168717a027c898910df8b79adabe0d4c))
+
 ## [1.0.4](https://github.com/obouchari/ali-cli/compare/v1.0.3...v1.0.4) (2025-06-29)
 
 
