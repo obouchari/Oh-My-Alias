@@ -1,0 +1,29 @@
+name: Publish to NPM on Release
+
+on:
+  release:
+    types: [published] # This workflow will run when a new release is published
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18" # Specify your desired Node.js version (e.g., 16, 18, 20)
+          registry-url: "https://registry.npmjs.org/" # Important for npm authentication
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests (optional but highly recommended)
+        run: npm test
+
+      - name: Publish to npm
+        run: npm publish --access public # Use --access public for unscoped public packages
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} # Reference your GitHub secret
