@@ -1,6 +1,6 @@
 {
   "name": "ali",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "",
   "bin": {
     "ali": "./dist/index.js"
@@ -9,7 +9,8 @@
   "scripts": {
     "build": "tsc",
     "dev": "ts-node src/index.ts",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "test": "echo \"No tests defined. Add your test scripts here.\" && exit 0"
   },
   "keywords": [],
   "author": "",
