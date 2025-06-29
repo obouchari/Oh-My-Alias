@@ -1,6 +1,6 @@
 {
   "name": "oh-my-alias",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "",
   "bin": {
     "oh-my-alias": "./bin/index.js",
